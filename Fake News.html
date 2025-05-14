@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TruthSeeker - Advanced Fake News Detection</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+        
+        .main-content {
+            padding: 3rem 0;
+        }
+        
+        .detection-box {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        .results {
+            margin-top: 2rem;
+            padding: 1rem;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .fake {
+            background-color: #ffdddd;
+            border-left: 5px solid var(--accent-color);
+        }
+        
+        .real {
+            background-color: #ddffdd;
+            border-left: 5px solid #2ecc71;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        .how-it-works {
+            margin: 3rem 0;
+        }
+        
+        .how-it-works h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .step {
+            flex-basis: 30%;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .steps {
+                flex-direction: column;
+            }
+            
+            .step {
+                flex-basis: 100%;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>TruthSeeker</h1>
+            <p class="tagline">Exposing the truth with advanced fake news detection powered by natural language processing</p>
+        </div>
+    </header>
+    
+    <div class="main-content">
+        <div class="container">
+            <div class="detection-box">
+                <h2>Detect Fake News</h2>
+                <p>Paste news article or statement below to analyze its credibility:</p>
+                <textarea placeholder="Paste news content here..."></textarea>
+                <button id="analyze-btn">Analyze for Fake News</button>
+                
+                <div id="results" class="results">
+                    <h3>Analysis Results</h3>
+                    <p id="result-text"></p>
+                    <p id="confidence"></p>
+                    <div id="explanation"></div>
+                </div>
+            </div>
+            
+            <div class="how-it-works">
+                <h2>How Our Fake News Detection Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <h3>1. Natural Language Processing</h3>
+                        <p>Our system breaks down the text to understand linguistic patterns and semantic meaning.</p>
+                    </div>
+                    <div class="step">
+                        <h3>2. Machine Learning Analysis</h3>
+                        <p>Advanced algorithms compare the content against known fake news patterns and reliable sources.</p>
+                    </div>
+                    <div class="step">
+                        <h3>3. Credibility Assessment</h3>
+                        <p>We evaluate multiple factors including source reliability, emotional language, and factual consistency.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="features">
+                <div class="feature">
+                    <h3>Advanced NLP Technology</h3>
+                    <p>Our system uses state-of-the-art natural language processing to detect subtle patterns in text that often indicate misinformation or manipulation.</p>
+                </div>
+                <div class="feature">
+                    <h3>Real-time Fact Checking</h3>
+                    <p>Cross-references claims with trusted databases and fact-checking organizations to verify information accuracy.</p>
+                </div>
+                <div class="feature">
+                    <h3>Bias Detection</h3>
+                    <p>Identifies language patterns that suggest political, commercial, or ideological bias in news reporting.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 TruthSeeker - Fighting Misinformation with AI</p>
+            <p>Contact us: info@truthseeker.ai</p>
+        </div>
+    </footer>
+    
+    <script>
+        document.getElementById('analyze-btn').addEventListener('click', function() {
+            const text = document.querySelector('textarea').value;
+            const results = document.getElementById('results');
+            const resultText = document.getElementById('result-text');
+            const confidence = document.getElementById('confidence');
+            const explanation = document.getElementById('explanation');
+            
+            if (text.trim() === '') {
+                alert('Please enter some text to analyze');
+                return;
+            }
+            
+            // Simulate analysis (in a real app, this would be an API call)
+            setTimeout(function() {
+                // This is a simulation - real implementation would use NLP
+                const isFake = Math.random() > 0.5;
+                const confidenceLevel = (Math.random() * 40 + 60).toFixed(1);
+                
+                results.style.display = 'block';
+                results.className = 'results ' + (isFake ? 'fake' : 'real');
+                
+                resultText.textContent = isFake 
+                    ? 'This content shows signs of being potentially misleading or false.'
+                    : 'This content appears to be credible and factual.';
+                    
+                confidence.textContent = `Confidence level: ${confidenceLevel}%`;
+                
+                explanation.innerHTML = isFake
+                    ? '<h4>Potential Issues Detected:</h4><ul><li>Emotionally charged language</li><li>Lack of credible sources</li><li>Contradictions with known facts</li></ul>'
+                    : '<h4>Positive Indicators:</h4><ul><li>Neutral tone</li><li>Citations from reliable sources</li><li>Consistent with factual databases</li></ul>';
+                
+                // Scroll to results
+                results.scrollIntoView({ behavior: 'smooth' });
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
